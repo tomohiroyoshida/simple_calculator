@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+    <title>My Vue app</title>
+    <script src="https://unpkg.com/vue"></script>
+    <style>
+        .red{
+            color: white;
+            background-color: red;
+        }
+    </style> 
+</head>
+<body>
+    <h1>Vue.js</h1>
+    <div id="app">
+        <div><hello/></div>
+    </div>
+
+    <!--  ここからVue  -->
+    <script>
+        var hello = Vue.component('hello',
+        {
+            data:function() {
+                return {
+                    counter:0,
+                    ieRed:false,
+                };
+            },
+            methods:{
+                doAction:function(event){
+                    this.counter++;
+                    if(this.counter > 10){
+                        this.counter = 0;
+                    }
+                    if(this.counter % 2 == 0){
+                        this.isRed = false;
+                    } else {
+                        this.isRed = true;
+                    }
+                },
+            },
+            template: '<p v-bind:class="{red:isRed}" v-on:click="doAction"class="hello">Clicked: {{counter}}</p>'
+        })
+
+        var app = new Vue({
+            el:"#app"
+        });
+    </script>
+</body>
+</html>
