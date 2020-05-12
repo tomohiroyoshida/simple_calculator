@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # hello_app
 
 ## Project setup
@@ -26,4 +27,7 @@ See [Configuration Reference](https://cli.vuejs.org/config/).
 =======
 # simple_calculator
 シンプルな計算機
+>>>>>>> origin/master
+=======
+# vue_practice
 >>>>>>> origin/master
