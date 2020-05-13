@@ -1,33 +1,23 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
-# hello_app
+# Simple Calculator
 
-## Project setup
-```
-npm install
-```
+これはVue.jsを使った簡単な四則演算ができる計算機のプログラムです   
+計算したい値と計算処理(+ - * %)を入力し、ボタンを押すことで計算結果を出力します 
+入力された値と計算処理、出力された値はテーブルに追加されます  
+入力された値、計算処理、計算結果は１０個までテーブルに加えられます  
+１０個を超えた場合は一番古い結果が消去されて新しい結果が追加されます  
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-=======
-# simple_calculator
-シンプルな計算機
->>>>>>> origin/master
-=======
-# vue_practice
->>>>>>> origin/master
+## Overview  
+- 使用技術  
+  - Vue.js
+  - npm  
+  
+- 工夫した点
+  - 計算結果だけでなく入力した値がテーブルに追加されるようにしました
+  - 入力された値と計算処理は；区切りで表せるようにしました
+  - テーブルの結果が１０個を超えると自動的に古いものから消えて新しいものが更新されるようにしました
+  
+- 苦労した点
+  -  計算結果が瞬時にテーブルに追加されるようにするための処理が難しかったです
+  
+## Author  
+吉田智洋（Tomohiro Yoshida）
