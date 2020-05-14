@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Calc from './components/Calc.vue'
+import Calc from './components/Calc.vue'  //Calcをインポート
 
 export default {
   name: 'app',
@@ -20,27 +20,28 @@ export default {
       result: [],
     };
   },
-  computed: {
+  computed: {  // 算出プロパティ
     log:function() {
-      var table = '<tr><th class="head">Expression</th><th class="head">Value</th></tr>';
+      var table = '<tr><th class="head">Expression</th><th class="head">Value</th></tr>';  //テーブル作成
       for(var i in this.result) {
-        table += '<tr><td>' + this.result[i][0] + '</td><td>' + this.result[i][1] + '</td></tr>' ;
+        // テーブルにresultのi番目の配列の０番目の値とi番目の配列の１番目の値を入れる
+        table += '<tr><td>' + this.result[i][0] + '</td><td>' + this.result[i][1] + '</td></tr>' ;  
       }
       return table;
     }
   },
   created: function(){
-    var items = localStorage.getItem('log');
+    var items = localStorage.getItem('log');  //Webブラウザに値を保存．getItemでlogキーを指定
     var logs = JSON.parse(items);
     if(logs != null) { this.result = logs;}
   },
-  methods: {
-    appAction: function (exp, res) {
-      this.result.unshift([exp, res]);
-      if(this.result.length > 10) {
+  methods: {  // 初期化処理
+    appAction: function (expre, res) {
+      this.result.unshift([expre, res]);  //expreとresを配列の一番最初に追加
+      if(this.result.length > 10) {  //10個を超えると最後を消す
         this.result.pop();
       }
-      var log = JSON.stringifya(this.result);
+      var log = JSON.stringify(this.result);  //JSON形式のテキストへ変換
       localStorage.setItem('log', log);
     }
   }
