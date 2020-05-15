@@ -16,14 +16,14 @@
         props: {
             title: String,
         },
-        data:function ()) {
+        data:function () {
             return {
                 message: 'Enter expression:',  //初期表示
                 fomula: '0',
             };
         },
         methods:{
-            doAction: function () {
+            doAction () {
                 var arr = this.fomula.trim().split('\n');  //arrにfomulaの前後の空白を取り除き配列にする
                 var last = arr.pop();  //arrの末尾を取得
                 var fn = '';           //空白
