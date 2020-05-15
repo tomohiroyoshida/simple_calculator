@@ -21,7 +21,7 @@ export default {
     };
   },
   computed: {  // 算出プロパティ
-    log:function() {
+    log () {
       var table = '<tr><th class="head">Expression</th><th class="head">Value</th></tr>';  //テーブル作成
       for(var i in this.result) {
         // テーブルにresultのi番目の配列の０番目の値とi番目の配列の１番目の値を入れる
@@ -36,7 +36,7 @@ export default {
     if(logs != null) { this.result = logs;}
   },
   methods: {  // 初期化処理
-    appAction: function (expre, res) {
+    appAction (expre, res) {
       this.result.unshift([expre, res]);  //expreとresを配列の一番最初に追加
       if(this.result.length > 10) {  //10個を超えると最後を消す
         this.result.pop();
