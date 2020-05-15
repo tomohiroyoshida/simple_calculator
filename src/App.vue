@@ -14,9 +14,9 @@ export default {
   components: {
     Calc
   },
-  data:function () {
+  data () {
     return {
-      message: 'CALC',
+      message: 'Simple Calculator',
       result: [],
     };
   },
@@ -30,14 +30,14 @@ export default {
       return table;
     }
   },
-  created: function(){
+  created (){ ///クリエイト
     var items = localStorage.getItem('log');  //Webブラウザに値を保存．getItemでlogキーを指定
     var logs = JSON.parse(items);
     if(logs != null) { this.result = logs;}
   },
   methods: {  // 初期化処理
-    appAction (expre, res) {
-      this.result.unshift([expre, res]);  //expreとresを配列の一番最初に追加
+    appAction: function (exp, res) {
+      this.result.unshift([exp, res]);  //expreとresを配列の一番最初に追加
       if(this.result.length > 10) {  //10個を超えると最後を消す
         this.result.pop();
       }
@@ -47,15 +47,23 @@ export default {
   }
 }
 </script>
-
+<!-- CSS -->
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: left;
-  color: #2c3e50;
+  font-size: 20px;
+  color: #black;
+  background-color: Wheat;
   margin: 5px;
+}
+.hello{
+  text-align: center;
+}
+table{
+  margin-right: auto;
+  margin-left: auto;
 }
 tr td{
   padding: 5px;
@@ -68,5 +76,12 @@ tr th{
 tr th.head{
   background-color: black;
   color: white;
+}
+textarea{
+  font-size: 20px;
+  background-color: Wheat;
+}
+button:hover{
+  color: red;
 }
 </style>

@@ -5,7 +5,7 @@
         <hr>
         <div>
             <div><textarea v-model="fomula" cols="40" rows="5"></textarea></div>
-            <div><button v-on:click="doAction">CALC！</button>  //ボタンを押すとdoActionが発火
+            <div><button v-on:click="doAction">CALC！</button></div>  <!-- ボタンを押すとdoActionが発火 -->
         </div>
     </div>
 </template>
@@ -16,7 +16,7 @@
         props: {
             title: String,
         },
-        data:function () {
+        data () {
             return {
                 message: 'Enter expression:',  //初期表示
                 fomula: '0',
@@ -27,19 +27,19 @@
                 var arr = this.fomula.trim().split('\n');  //arrにfomulaの前後の空白を取り除き配列にする
                 var last = arr.pop();  //arrの末尾を取得
                 var fn = '';           //空白
-                for(var n in arr) {    
+                for(var n in arr) {
                     if(arr[n].trim() != '') {          //もし空白でなければ
                         fn += 'var ' + arr[n] + ';';   //arrのn番目の値をfnに足す
                     }
                 }
                 fn += 'return '  +  last + ';';        //fn+lastをreturn
-                var expre='function f(){' + fn +  '} f();';    // fという関数にfnで完成したのテキストをまとめて実行できるようにする
-                var ans = eval(expre);                 //expreをevalする
+                var exp='function f(){' + fn +  '} f();';    // fという関数にfnで完成したのテキストをまとめて実行できるようにする
+                var ans = eval(exp);                 //expをevalする
                 this.message = 'answer: ' + ans;       // 実行した結果を
-                var result = arr.join(';').trim();     // resultにarrに；を足したものを代入
-                if (result != '') { result += ';'}     // resultが空白でなければ；をつけてlastを追加
-                result += last;
-                this.$emit('result-event', result, ans)；     // resultとansを引数に指定し，result-eventのイベントを呼び出す
+                var res = arr.join(';').trim();     // resultにarrに；を足したものを代入
+                if (res != '') { res += ';'}     // resultが空白でなければ；をつけてlastを追加
+                res += last;
+                this.$emit('result-event', res, ans);    // resultとansを引数に指定し，result-eventのイベントを呼び出す
             }
         }
     }
